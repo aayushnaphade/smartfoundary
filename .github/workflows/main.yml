@@ -8,17 +8,18 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-
+ 
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Install Flutter SDK
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: 'stable'
+  - name: Set up Flutter
+    uses: subosito/flutter-action@v2
+    with:
+      channel: stable
+      flutter-version-file: pubspec.yaml # path to pubspec.yaml
+  - run: flutter --version
 
       # Step 3: Run Flutter clean (optional but recommended)
       - name: Clean build folder
