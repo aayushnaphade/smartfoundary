@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "891439986326",
+    "project_id": "smart-foundary-siw6f9",
+    "storage_bucket": "smart-foundary-siw6f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891439986326:android:c293d3406485b5672c74b7",
+        "android_client_info": {
+          "package_name": "com.mycompany.smartfoundary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALcARWObYNULoZ5f14VT6C1KS-_4xNONI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2073,7 +2073,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       8.0,
                                                                       0.0,
                                                                       8.0,
-                                                                      0.0),
+                                                                      10.0),
                                                           child: Container(
                                                             height: 362.0,
                                                             decoration:
