@@ -1,0 +1,40 @@
+
+
+name: Merge flutterflow to main
+
+# This allows you to manually trigger the workflow
+on:
+  workflow_dispatch:
+    inputs:
+      commit_message:
+        description: 'Commit message for the merge'
+        required: true
+        default: 'Merging flutterflow into main'
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          # Fetch all branches so that we can merge
+          fetch-depth: 0
+
+      # Step 2: Set up Git
+      - name: Set up Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      # Step 3: Merge the flutterflow branch into main
+      - name: Merge flutterflow into main
+        run: |
+          git checkout main
+          git merge flutterflow -m "${{ github.event.inputs.commit_message }}"
+
+      # Step 4: Push changes back to the repository
+      - name: Push changes
+        run: git push origin main
