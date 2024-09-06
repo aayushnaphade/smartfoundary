@@ -1,0 +1,40 @@
+name: Build Flutter Windows Release App
+
+on:
+  push:
+    branches:
+      - main  # or whatever branch you want to trigger the build from
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Install Flutter SDK
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+
+      # Step 3: Run Flutter clean (optional but recommended)
+      - name: Clean build folder
+        run: flutter clean
+
+      # Step 4: Fetch dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Step 5: Build the Windows release app
+      - name: Build Windows release
+        run: flutter build windows --release
+
+      # Step 6: Upload the build artifacts (optional)
+      - name: Upload Windows app
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-release-app
+          path: build/windows/runner/Release
