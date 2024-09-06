@@ -3,7 +3,7 @@ name: Build Flutter Windows Release App
 on:
   push:
     branches:
-      - main  # or whatever branch you want to trigger the build from
+      - flutterflow  # or whatever branch you want to trigger the build from
 
 jobs:
   build:
